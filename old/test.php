@@ -13,7 +13,7 @@ $challenges[] = new Challenge(
   "Bla bla bla bla.  ".
   "Bla bla bla bla. ",
   array(
-    "chord" => 80,
+    "harmony" => 80,
     "scale" => 70,
     "rhythm" => 10,
     "technique" => 50
@@ -25,10 +25,50 @@ $players[] = new JazzPianoPlayer("Magnus");
 $players[] = new PopPianoPlayer("David");
 
 //create three different tools with different skills
+
+
+$tool_properties = array(
+  array(
+    "description" => "HarmonyBook",
+    "skills" => array(
+      "harmony" => 20,
+    ),
+  ),
+  array(
+    "description" => "ScaleBook",
+    "skills" => array(
+      "scale" => 30,
+    ),
+  ),
+  array(
+    "description" => "HanonBook",
+    "skills" => array(
+      "technique" => 10,
+    ),
+  ),
+  array(
+    "description" => "Metronome",
+    "skills" => array(
+      "rhythm" => 20,
+    ),
+  ),
+  array(
+    "description" => "Tudor",
+    "skills" => array(
+      "harmony" => 20,
+      "rhythm" => 20,
+      "technique" => 20,
+      "scale" => 20,
+    ),
+  ),
+);
+
+/*
+
 $tools[] = New Tool(
   "HarmonyBook",
   array(
-    "chord" => 20,
+    "harmony" => 20,
   )
 );
 
@@ -54,7 +94,7 @@ $tools[] = New Tool(
     "rhythm" => 30,
   )
 );
-
+*/
 //give Player the HanonBook tool and see how it affects his chances to win
 //$players[0]->tools[] = $tools[2];
 
@@ -104,6 +144,13 @@ var_export($testPlayers);
 echo('</pre>');
 
 
+/*
 echo("<br>"." ".$players[0]->name." got the ".$players[0]->tools[0]->description." tool!");
+
+
+  public function __construct($tools){
+    $this->description = $tools["description"];
+    $this->skills = $tools["skills"];
+    */
 
 

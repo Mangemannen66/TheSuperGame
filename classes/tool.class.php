@@ -1,14 +1,13 @@
 <?php
 
 //a tool class
-class Tool extends Player {
+class Tool extends Base {
   public $description;
   public $skills;
 
 
-
-  public function __construct($description,$skills){
-    $this->description = $description;
-    $this->skills = $skills;
+  public function __construct($tool_properties){
+    $this->description = $tool_properties["description"];
+    $this->skills = $tool_properties["skills"];
   }
 }

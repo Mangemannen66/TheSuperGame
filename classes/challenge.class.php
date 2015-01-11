@@ -2,7 +2,7 @@
 
 
 // A challenge class
-class Challenge extends player {
+class Challenge extends Base {
   public $description;
   public $skills;
   
@@ -12,9 +12,7 @@ class Challenge extends player {
 
   }
 
-  // In howGoodAMatch() we want to return how well
-  // a player matches this challenge as a float number 
-  // between 0 - 1
+
   public function howGoodAMatch($player){
     //total points a player has
     $sum= 0;
@@ -26,7 +24,7 @@ class Challenge extends player {
       //by checking how many skillpoints the challenge requires
       $needed = $points;
       //and by checking how many skillpoints a player has
-      $has = $player->{$skill.'Skill'}; //chordSkill
+      $has = $player->{$skill.'Skill'}; //Skill
 
       //check if a player has any tools
       if (count($player->tools) > 0) {
@@ -44,22 +42,15 @@ class Challenge extends player {
       }
 
       //if a player has more points than needed, only count the points needed (to preserve our percentage)
-      //(usimg ternary)
-      //else count the skillpoints a player has 
+      //else count the skillpoints a player has
       $sum += $has > $needed ? $needed : $has;
       $max += $needed;
-
-      //echo ($sum);
-      //echo ($max);
-      //echo ("<br>".$needed);
     }
 
     //return the percentage of skill points they have
     return $sum/$max;
   }
 
-  // This calculates the chances to win the challenge
-  // as a percentage for each player
   public function winChances($players){
     $matches = array();
     //count is used to create a range of win intervals for all players
@@ -83,7 +74,6 @@ class Challenge extends player {
     return $matches;
   }
 
-  // Randomize a winner according to win chances for each player
   public function playChallenge($players){
     //get chances to win for each player
     $matches = $this->winChances($players);
@@ -91,7 +81,7 @@ class Challenge extends player {
     $count = 0;
     //pick a random number (between 0 and 100 since we are using percent)
     $rand = rand(0,100);
-
+    
     //then check which player interval contains the random number
     foreach($matches as $match){
       if(
@@ -101,70 +91,26 @@ class Challenge extends player {
         //if a players interval contains the random number
         // we have a winner, end function using return
         return $match["player"];
+      } else {
+        //if not a winner, find out how close to winning they were
       }
       //if this player was not a winner, increase interval and try again...
       $count += $match["winChancePercent"];
     }
   }
+
+  /*
+   
+  public function get_description() {
+    return $this->description;
+  }
+  public function get_skills() {
+    return $this->skills;
+  }
+  */
 }
 
-/*
-$challenges = array();
-$players = array();
-$tools = array();
-
-$challenges[] = new Challenge(
-  "Bla bla bla bla. ".
-  "Bla bla bla bla.  ".
-  "Bla bla bla bla. ",
-  array(
-    "chord" => 80,
-    "scale" => 70,
-    "rhythm" => 10,
-    "technique" => 50
-  )
-);
 
 
-
-// Try out our brilliant code below
-
-
-// Create some players with different profiles
-$players[] = new RockPianoplayer("Jerry");
-$players[] = new JazzPianoplayer("Magnus");
-$players[] = new PopPianoplayer("David");
-
-//create three different tools with different skills
-$tools[] = New Tool(
-  "HarmonyBook",
-  array(
-    "chord" => 20,
-  )
-);
-
-
-$tools[] = New Tool(
-  "ScaleBook",
-  array(
-    "scale" => 15,
-  )
-);
-
-
-$tools[] = New Tool(
-  "HanonBook",
-  array(
-    "technique" => 30,
-  )
-);
-
-$tools[] = New Tool(
-  "Metronome",
-  array(
-    "rhythm" => 30,
-  )
-);
-*/
 
 
