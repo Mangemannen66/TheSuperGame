@@ -43,7 +43,7 @@ class Player extends Base {
     }
   }
 
-  public function doChallenge($challenge, $players) {
+  public function carryOutChallenge($challenge, $players) {
     //find the winners and return them
     $result = array();
     while (count($players) !== 0) {
@@ -57,9 +57,9 @@ class Player extends Base {
     return $result;
   }
 
-  public function doChallengeWithFriend($challenge, &$players) {
+  public function carryOutChallengeWithFriend($challenge, &$players) {
     //find the winners and return them
-    return $this->doChallenge($challenge, $players);
+    return $this->carryOutChallenge($challenge, $players);
   }
 /*
   public function get_name() {

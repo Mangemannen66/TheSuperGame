@@ -67,7 +67,7 @@ if ($companion_index !== false && count($ds->players) > 2) {
   $players[] = $opponent;
 
   //and do the challenge
-  $result = $human_player->doChallengeWithFriend($ds->current_challenge[0], $human_player, $companion, $opponent);
+  $result = $human_player->carryOutChallengeWithFriend($ds->current_challenge[0], $human_player, $companion, $opponent);
 
   //who first etc.
   $winner = $result[0];
@@ -94,7 +94,7 @@ if ($companion_index !== false && count($ds->players) > 2) {
   }
 } else {
   //PLAY CHALLENGE
-  $result = $human_player->doChallenge($ds->current_challenge[0], $ds->players);
+  $result = $human_player->carryOutChallenge($ds->current_challenge[0], $ds->players);
 
   //who is first etc.
   $winner = $result[0];
