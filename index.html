@@ -30,25 +30,27 @@
 
         <form action="start_game.php" method="post">
 
-            <div id="data">
+            
                 <label>Type your name:</label>
                 <input type="text" name="player_name"><br>
 
-                <label>Choose a Pianoplayer:</label><br>
-                <input type="radio" name="player_class" value="RockPianoPlayer" checked>RockPianoPlayer<br>
-                <input type="radio" name="player_class" value="JazzPianoPlayer">JazzPianoPlayer<br>
-                <input type="radio" name="player_class" value="PopPianoPlayer">PopPianoPlayer<br>
-           
-            </div>
+                <label>Choose the type of player:</label>
+              <select name="player_class">  
+                <option selected>RockPianoPlayer</option>
+                <option>JazzPianoPlayer</option>
+                <option>PopPianoPlayer</option>
+              </select><br>
+          
+            
 
-            <div id="buttons">
+            
                 <label>&nbsp;</label>
                 <input type="submit" value="Start the game"><br>
-            </div>
+            
 
         </form>
         </section>
-      </article>
+      </article>  
     </main>
     <footer>
       <address> 

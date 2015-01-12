@@ -119,6 +119,28 @@ footer {
   padding: 15px;  
 }
 
+section form {
+  padding: 1.1em;
+}
+section form label:after {
+  content: "";
+  display: block;
+}
+
+section form input[type="text"]{
+  display: block;
+}
+
+section form select {
+	width: 11.3em;
+}
+
+
+section form input[type="submit"]{
+  display: block;
+  margin-top: 30px;
+}
+
 label {
 	margin-left: .5em;
     width: 13em;
@@ -126,19 +148,13 @@ label {
     padding-right: 1em;
     padding-bottom: .5em;
 }
-#data input {
-    float: left;
-    width: 15em;
-    margin-bottom: .5em;
-}
-#data span {
-    padding-left: .25em;
-}
-#buttons input {
+
+/*#buttons input {
     float: left;
     margin-bottom: .5em;
     margin-top: .8em;
 }
+*/
 br {
     clear: left;
 }
