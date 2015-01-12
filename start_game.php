@@ -23,8 +23,10 @@ unset($ds->available_tools);
 
 
 //these should be delivered with AJAX
+
 $player_name = "Magnus Danielsson";
 $player_class = "RockPianoPlayer";
+
 
 
 
